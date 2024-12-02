@@ -38,8 +38,6 @@ def form():
         )
         dataframe = customdata.conver_data_to_dataframe()
 
-        print(dataframe.head())
-
         prediction_pipe = PredictionPipeline()
         prediction = prediction_pipe.predict(dataframe)
 
