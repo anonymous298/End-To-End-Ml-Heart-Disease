@@ -22,6 +22,15 @@ class DataPreprocessing:
         self.data_preprocessing_config = DataPreprocessingConfig()
 
     def give_preprocessor_object(self, X):
+        '''
+        Create and return the preprocessor object.
+
+        Parameters:
+            X (dataframe): dataframe for extracting numerical and categorical columns.
+
+        Returns:
+            Preprocessor Object.
+        '''
         try:
             logger.info('Initializing Preprocessor Pipeline')
 
@@ -61,6 +70,16 @@ class DataPreprocessing:
             raise CustomException(e, sys)
         
     def initiate_preprocessing(self, train_path, test_path):
+        '''
+        fetches train and test data and returns clean X_train, X_test, y_train, y_test.
+
+        Parameters:
+            train_path (str): training path in which the training data is present.
+            test_path (str): testing path in which the testing data is present.
+
+        Returns:
+            clean X_train, X_test, y_train, y_test.
+        '''
         try:
             X_train, X_test, y_train, y_test = fetch_train_test_data(train_path, test_path)
 

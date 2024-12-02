@@ -134,8 +134,6 @@ class ModelEvaluation:
 
             logger.info('Hyperparameter tuning Completed')
 
-            return tuned_model_score
-
         except Exception as e:
             logger.error(e)
             raise CustomException(e, sys)

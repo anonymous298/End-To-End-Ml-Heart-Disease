@@ -23,9 +23,17 @@ class DataIngestion:
         self.data_ingestion_config = DataIngestionConfig()
 
     def load_data(self):
+        '''
+        This function fetches creates and return data
+
+        Returns:
+            return_type: returns train and test path
+        '''
         try:   
             logger.info('Reading data from source')
             df = pd.read_csv('Notebooks/data/heart.csv')
+            
+            os.makedirs(os.path.dirname(self.data_ingestion_config.raw_data_path), exist_ok=True)
 
             logger.info(f'Saving raw data to path {self.data_ingestion_config.raw_data_path}')
             df.to_csv(self.data_ingestion_config.raw_data_path)
