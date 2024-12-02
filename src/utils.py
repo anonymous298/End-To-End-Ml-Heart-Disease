@@ -38,6 +38,22 @@ def save_model(file_path, model):
     except Exception as e:
         logger.error(e)
         raise CustomException(e, sys)
+    
+def load_model(file_path):
+    try:
+        logger.info('Opening Model')
+
+        with open(file_path, 'rb') as f:
+            model = dill.load(f)
+
+        logger.info('Model Loaded')
+
+        return model
+    
+    except Exception as e:
+        logger.error(e)
+        raise CustomException(e, sys)
+    
 
 def fetch_train_test_data(train_path, test_path):
     '''

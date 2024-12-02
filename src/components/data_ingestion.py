@@ -36,16 +36,16 @@ class DataIngestion:
             os.makedirs(os.path.dirname(self.data_ingestion_config.raw_data_path), exist_ok=True)
 
             logger.info(f'Saving raw data to path {self.data_ingestion_config.raw_data_path}')
-            df.to_csv(self.data_ingestion_config.raw_data_path)
+            df.to_csv(self.data_ingestion_config.raw_data_path, index=False)
 
             logger.info('Splitting data into training and testing')
             train_data, test_data = train_test_split(df, test_size=0.2, random_state=42)
 
             logger.info('Saving train data to path', self.data_ingestion_config.train_data_path)
-            train_data.to_csv(self.data_ingestion_config.train_data_path)
+            train_data.to_csv(self.data_ingestion_config.train_data_path, index=False)
 
             logger.info('Saving test data to path', self.data_ingestion_config.test_data_path)
-            test_data.to_csv(self.data_ingestion_config.test_data_path)
+            test_data.to_csv(self.data_ingestion_config.test_data_path, index=False)
 
             logger.info('Data Fetching and Saving completed')
 
