@@ -3,6 +3,8 @@
 
 This project is an end-to-end Machine Learning application that predicts the likelihood of heart disease based on user inputs. It includes modular code, a Flask-based web application, and is containerized using Docker for easy deployment.
 
+![2](https://github.com/user-attachments/assets/57897bf2-6c61-48ac-ab86-fbe8ad7e770c)
+
 
 ## Features
 
