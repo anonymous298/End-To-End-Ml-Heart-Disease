@@ -124,7 +124,7 @@ def get_param_grid():
 
     param_grid = {
     'LogisticRegression': {
-        'penalty': ['l1', 'l2', 'elasticnet', 'none'],
+        # 'penalty': ['l2', 'none'],
         'C': [0.01, 0.1, 1, 10],
         'solver': ['lbfgs', 'saga'],  # Adjust based on penalties
         'max_iter': [100, 200, 500],
@@ -137,7 +137,7 @@ def get_param_grid():
     'KNeighborsClassifier': {
         'n_neighbors': [3, 5, 7, 9],
         'weights': ['uniform', 'distance'],
-        'metric': ['euclidean', 'manhattan', 'minkowski'],
+        # 'metric': ['euclidean', 'manhattan', 'minkowski'],
     },
     'DecisionTreeClassifier': {
         'criterion': ['gini', 'entropy'],

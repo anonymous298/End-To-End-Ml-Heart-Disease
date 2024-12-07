@@ -127,10 +127,29 @@ class ModelEvaluation:
 
                 accuracy = accuracy_score(y_test, y_pred)
 
-                tuned_model_score[list(models.keys()[i])] = accuracy
+                tuned_model_score[list(models.keys())[i]] = accuracy
                 logger.info(f'Training completed score is -> {accuracy}')
 
             print(f'Models Accuracy after tuning: {tuned_model_score}')
+
+            logger.info('Finding out the best model')
+            best_model_score = max(sorted(list(tuned_model_score.values())))
+
+            best_model_name = list(tuned_model_score.keys())[
+                list(tuned_model_score.values()).index(best_model_score)
+            ]
+            logger.info(f'Best model found: {best_model_name}')
+
+            best_model = models[best_model_name]
+
+            if best_model_score < 0.6:
+                raise CustomException('Best Model Not Found', sys)
+
+            save_model(
+                self.model_evaluation_config.model_path,
+                best_model
+            )
+
 
             logger.info('Hyperparameter tuning Completed')
 

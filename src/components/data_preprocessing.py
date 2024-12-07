@@ -91,8 +91,8 @@ class DataPreprocessing:
             X_test = preprocessor.transform(X_test)
 
             save_model(
-                self.data_preprocessing_config.preprocessor_path,
-                preprocessor
+                file_path=self.data_preprocessing_config.preprocessor_path,
+                model=preprocessor
             )
 
             logger.info('Preprocessing Completed')

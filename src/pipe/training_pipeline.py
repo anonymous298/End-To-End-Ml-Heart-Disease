@@ -24,6 +24,8 @@ def training_pipeline():
     model_evaluation = ModelEvaluation()  #Creating ModelEvalution object
     model_evaluation.evaluate(trained_models, X_train, X_test, y_train, y_test)   # Evaluating and saving our best model
 
+    model_evaluation.hyperparameter_tuning(X_train, X_test, y_train, y_test)  # Hyperparameter tuning
+
     logger.info('Training Pipeline COmpleted')
 
 if __name__ == '__main__':
